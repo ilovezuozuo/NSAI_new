@@ -1,0 +1,20 @@
+<launch>
+  <!-- <arg
+    name="model" /> -->
+  <include file="$(find ur_description)/launch/upload_mir_ur10e_robot_urdf.launch" />
+	  <arg name="robot_x"   default="0.0" />
+	  <arg name="robot_y"   default="0.0" />
+	  <arg name="robot_yaw" default="0.0" />
+
+	  <!-- Spawn the robot into Gazebo -->
+	  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mir
+	    -x $(arg robot_x) -y $(arg robot_y) -Y $(arg robot_yaw) -z 1.5" respawn="false" output="screen"/>
+  <!-- <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" /> -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+</launch>

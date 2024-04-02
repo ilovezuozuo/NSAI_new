@@ -1,0 +1,2 @@
+标定参见标定教程，标定好的文件要放在系统的隐藏文件夹下.ros下
+然后再easyhandeye下的launch下的pubilsh.launch下改一下标定的文件名

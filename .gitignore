@@ -1,0 +1,13 @@
+./NSAI_new/build/
+./NSAI_new/devel/
+*.pyc
+*.csv
+*.png
+*.jpg
+*.pt
+*.bin
+*.pth
+*.onnx
+*.pkl
+./.idea/
+.vscode/

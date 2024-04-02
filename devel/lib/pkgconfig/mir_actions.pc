@@ -1,0 +1,8 @@
+prefix=/home/inexbot/NSAI_new/devel
+
+Name: mir_actions
+Description: Description of mir_actions
+Version: 1.1.7
+Cflags: -I/home/inexbot/NSAI_new/devel/include
+Libs: -L${prefix}/lib 
+Requires: actionlib geometry_msgs message_runtime mir_msgs nav_msgs

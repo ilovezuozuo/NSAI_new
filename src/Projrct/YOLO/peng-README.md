@@ -1,0 +1,6 @@
+这里面是yolo的权重文件和server和结构
+model_data里的black_new_weights.pth
+YOLO_server.py
+yolo.py
+
+YOLO_server_vino是部署在openvino上的，包含了server和网络结构在一起的。

@@ -1,0 +1,8 @@
+prefix=/home/inexbot/NSAI_new/devel
+
+Name: ur_modern_driver
+Description: Description of ur_modern_driver
+Version: 0.0.1
+Cflags: -I/home/inexbot/NSAI_new/src/Official_package/UR/Universal_Robots_ROS_Driver/ur_modern_driver/include
+Libs: -L${prefix}/lib 
+Requires: hardware_interface controller_manager actionlib control_msgs geometry_msgs roscpp sensor_msgs trajectory_msgs ur_msgs

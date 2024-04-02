@@ -1,0 +1,8 @@
+prefix=/home/inexbot/NSAI_new/install
+
+Name: rpi_ati_net_ft
+Description: Description of rpi_ati_net_ft
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

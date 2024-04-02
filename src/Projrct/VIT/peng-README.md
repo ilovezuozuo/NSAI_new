@@ -1,0 +1,1 @@
+VIT_for_insert文件夹下是insert原语时，为了检验LSTM输出位置是否合适的网络。这个mobilevit来自于mmlab中直接实例化的，VIT_for_insert文件夹下是他实例化时需要传入的配置权重等

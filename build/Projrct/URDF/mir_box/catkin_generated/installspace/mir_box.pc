@@ -1,0 +1,8 @@
+prefix=/home/inexbot/NSAI_new/install
+
+Name: mir_box
+Description: Description of mir_box
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

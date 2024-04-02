@@ -1,0 +1,2 @@
+VGG是socket也是server的形式，他没有client，直接在planner里edge那个函数里调用的。传一张图片，server会返回4类中的某一个
+

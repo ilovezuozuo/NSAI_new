@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mir_box">
+  <link
+    name="mir_box_base_link">
+    <inertial>
+      <origin
+        xyz="-0.00046711 0.11071 -0.22445"
+        rpy="0 0 0" />
+      <mass
+        value="4.4758" />
+      <inertia
+        ixx="0.071317"
+        ixy="2.1555E-07"
+        ixz="2.7561E-09"
+        iyy="0.088836"
+        iyz="-0.00164"
+        izz="0.11856" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mir_description/meshes/mir_box_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mir_description/meshes/mir_box_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="mir2box_Link">
+    <inertial>
+      <origin
+        xyz="-0.035263 0.29755 0.0094377"
+        rpy="0 0 0" />
+      <mass
+        value="0.0031416" />
+      <inertia
+        ixx="1.0472E-07"
+        ixy="-7.053E-38"
+        ixz="-3.0355E-40"
+        iyy="1.0472E-07"
+        iyz="2.8699E-40"
+        izz="1.5708E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mir_description/meshes/mir2box_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mir_description/meshes/mir2box_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="mir2box_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0.158 -0.473"
+      rpy="0 0 0" />
+    <parent
+      link="mir_box_base_link" />
+    <child
+      link="mir2box_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

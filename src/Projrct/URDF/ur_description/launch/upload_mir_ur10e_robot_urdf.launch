@@ -1,0 +1,4 @@
+<!-- Upload robot descripton to the ROS-Core -->
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur_socket_describe)/urdf/mir_ur.xacro'" />
+</launch>

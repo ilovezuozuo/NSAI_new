@@ -1,0 +1,8 @@
+prefix=/home/inexbot/NSAI_new/devel
+
+Name: mir_msgs
+Description: Description of mir_msgs
+Version: 1.1.7
+Cflags: -I/home/inexbot/NSAI_new/devel/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs message_runtime

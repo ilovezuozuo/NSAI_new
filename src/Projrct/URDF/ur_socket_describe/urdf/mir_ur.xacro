@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur10e_robot">
+
+
+  <!-- 这里是ur的urdf文件 -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/mir_ur10e_macro.xacro"/>
+
+
+  <xacro:ur10e_robot prefix="" />
+  <!-- <xacro:include filename="$(find ur_description)/urdf/battery_pack_sleeve/endeffector.urdf.xacro" /> -->
+
+  <!-- 这里是末端执行器的urdf文件 -->
+  <xacro:include filename="$(find end_effector)/urdf/end_effector.urdf" />
+
+  <!-- <link name="ground_plane_box">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="3 3 0.05"/>
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.7 0.7 0.7 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="3 3 0.05"/>
+        </geometry>
+      </collision>
+  </link> -->
+  <!-- <joint name="ground_plane_box" type="fixed">
+      <parent link="base" />
+      <child link="ground_plane_box" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint> -->
+
+
+<!-- 这里把法兰盘的中心"tool0"和执行器urdf中的pneumatic_base_link固定在一起，并定义距离和偏转，这样就连起来了两个urdf -->
+  <joint name="ur_socket_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0  -1.57   0  " />
+    <parent link="tool0"/>
+    <child link="pneumatic_base_link"/>
+  </joint>
+
+<!-- 小车的urdf+gazebo控制插件 -->
+  <!-- MiR100 base -->
+  <xacro:include filename="$(find mir_description)/urdf/include/common.gazebo.xacro" />
+  <xacro:include filename="$(find mir_description)/urdf/include/mir_100_v1.urdf.xacro" />
+  <xacro:mir_100 prefix=""/>
+  <xacro:controller_plugin_gazebo robot_namespace=""/>
+
+<!-- +箱体+ -->
+  <!-- Controlbox -->
+  <xacro:include filename="$(find mir_box)/urdf/mir_box.urdf.xacro" />
+
+  <!-- Connection UR to planning frame world -->
+  <!-- <link name="world" /> -->
+  <!-- 把箱体连接到ur上 -->
+  <joint name="box2ur_joint" type="fixed">
+    <parent link="box_ur_link" />
+    <child link = "base_link_ur" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 ${pi/2.0}" />
+  </joint>
+
+  <!-- Connection MiR to planning frame world where UR is connected -->
+  <!-- <joint name="compJoint" type="fixed">
+    <origin xyz="0.153 -0.0325 0.892" rpy="0 0 0" /> 
+    <parent link="base_link" />
+    <child link="world" />
+  </joint> -->
+
+  <!-- Connection controlbox to MiR -->
+  <!-- 把箱体放在车上 -->
+  <joint name="boxJoint" type="fixed">
+    <origin xyz="0.038 0 0.352" rpy="0 0 ${pi/1.0}" />
+    <parent link="base_link" />
+    <child link="mir_box_base_link" />
+  </joint>
+  
+</robot>
